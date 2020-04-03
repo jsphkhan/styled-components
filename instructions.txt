@@ -8,6 +8,16 @@ https://styled-components.com/docs/basics#motivation
 Styled Components uses an unusual backtick syntax which is a new JavaScript 
 feature called a tagged template literal.
 
+Git repo:
+-------------
+https://github.com/jsphkhan/styled-components
+
+
+Youtube video:
+-----------------
+https://www.youtube.com/watch?v=E1z-ukmEayI
+
+
 Install styled-components
 -----------------------------
 yarn add styled-components
