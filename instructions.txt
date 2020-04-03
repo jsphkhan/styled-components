@@ -1,0 +1,56 @@
+This is a React App that uses Styled Components - CSS in JS
+This is not an ejected app.
+
+https://styled-components.com/
+https://styled-components.com/docs/basics#motivation
+
+
+Styled Components uses an unusual backtick syntax which is a new JavaScript 
+feature called a tagged template literal.
+
+Install styled-components
+-----------------------------
+yarn add styled-components
+
+
+There are advantages of using Styled Components
+------------------------------------------------
+1. There is no external CSS. styles are added inline inside a <Style> block inside <head>
+2. No external CSS means, no extra HTTP call and no render-blocking perf issue. 
+3. Styled components add styles for only those components that are used in the application. Whenever
+a component is removed from app, its styles is also automatically removed.
+4. So this means the unused CSS styles will not be there. When you do a code coverage analysis in Chrome,
+you will have better results. With normal CSS files, you forget to remove style rules when you remove component.
+So lot of unused styles stays in your production code. 
+5. Styled components use dynamic CSS class names. So you do not have to maintain class names, 
+no spelling mistakes
+6. Easy maintenance: you never have to hunt across different files to find the styling 
+affecting your component, so maintenance is a piece of cake no matter how big your codebase is.
+7. Styled components take care of style scoping. No issue of style overriding. Since it creates
+unique classes for every component, so no overlapping happens.
+8. Best part is - styled component follows code splitting.
+Say in Page1 I use 2 styled components - styled-comp-1, styled-comp-2 so only styles (css clsses) of these 2 components are
+added in the <style> tag in <head>
+No if I move to Page2 (using React Router) and Page2 uses another styled component - styled-comp-3, the style for
+the 3rd component is added at runtime to the same <style> tag inside <head>
+
+
+Security
+--------------
+Prevent XSS attacks.
+Sanitize the styles before inserting into template literals
+
+https://styled-components.com/docs/advanced#security
+
+eg.
+// Oh no! The user has given us a bad URL!
+const userInput = '/api/withdraw-funds'
+
+const ArbitraryComponent = styled.div`
+  background: url(${userInput});
+  /* More styles here... */
+`
+
+Adding Babel plugin for Styled Components
+-------------------------------------------
+https://styled-components.com/docs/tooling
